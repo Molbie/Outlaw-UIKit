@@ -15,7 +15,12 @@ import OutlawCoreGraphics
 
 class UIColorTests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: CGFloat] = ["red": 0.1, "green": 0.2, "blue": 0.3, "alpha": 0.4]
+        typealias keys = UIColor.ExtractableKeys
+        
+        let rawData: [String: CGFloat] = [keys.red: 0.1,
+                                          keys.green: 0.2,
+                                          keys.blue: 0.3,
+                                          keys.alpha: 0.4]
         let data: [String: [String: CGFloat]] = ["color": rawData]
         let color: UIColor = try! data.value(for: "color")
         
@@ -25,10 +30,10 @@ class UIColorTests: XCTestCase {
         var alpha: CGFloat = 0
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        XCTAssertEqual(red, rawData["red"])
-        XCTAssertEqual(green, rawData["green"])
-        XCTAssertEqual(blue, rawData["blue"])
-        XCTAssertEqual(alpha, rawData["alpha"])
+        XCTAssertEqual(red, rawData[keys.red])
+        XCTAssertEqual(green, rawData[keys.green])
+        XCTAssertEqual(blue, rawData[keys.blue])
+        XCTAssertEqual(alpha, rawData[keys.alpha])
     }
     
     func testIndexExtractableValue() {
@@ -54,7 +59,7 @@ class UIColorTests: XCTestCase {
         
         let ex = self.expectation(description: "Invalid data")
         do {
-            let _: CGAffineTransform = try data.value(for: 0)
+            let _: UIColor = try data.value(for: 0)
         }
         catch {
             if case OutlawError.typeMismatchWithIndex = error {
@@ -65,6 +70,8 @@ class UIColorTests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = UIColor.ExtractableKeys
+        
         let color = UIColor(red: 0.1, green: 0.2, blue: 0.3, alpha: 0.4)
         let data: [String: CGFloat] = color.serialized()
         
@@ -74,10 +81,10 @@ class UIColorTests: XCTestCase {
         var alpha: CGFloat = 0
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        XCTAssertEqual(data["red"], red)
-        XCTAssertEqual(data["green"], green)
-        XCTAssertEqual(data["blue"], blue)
-        XCTAssertEqual(data["alpha"], alpha)
+        XCTAssertEqual(data[keys.red], red)
+        XCTAssertEqual(data[keys.green], green)
+        XCTAssertEqual(data[keys.blue], blue)
+        XCTAssertEqual(data[keys.alpha], alpha)
     }
 }
 #endif
