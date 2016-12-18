@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AE15E19C1E06033D007E628E /* OutlawUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1921E06033D007E628E /* OutlawUIKit.framework */; };
-		AE15E1A11E06033D007E628E /* OutlawUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15E1A01E06033D007E628E /* OutlawUIKitTests.swift */; };
 		AE15E1A31E06033D007E628E /* OutlawUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AE15E1951E06033D007E628E /* OutlawUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE15E1AE1E06035D007E628E /* UIColor+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15E1AD1E06035D007E628E /* UIColor+Outlaw.swift */; };
 		AE15E1B21E0608C6007E628E /* Outlaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1B01E0608C6007E628E /* Outlaw.framework */; };
 		AE15E1B31E0608C6007E628E /* OutlawCoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1B11E0608C6007E628E /* OutlawCoreGraphics.framework */; };
 		AE15E1B61E06091D007E628E /* Outlaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1B41E06091D007E628E /* Outlaw.framework */; };
 		AE15E1B71E06091D007E628E /* OutlawCoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1B51E06091D007E628E /* OutlawCoreGraphics.framework */; };
+		AE15E1B91E0609BF007E628E /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15E1B81E0609BF007E628E /* UIColorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +32,13 @@
 		AE15E1951E06033D007E628E /* OutlawUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutlawUIKit.h; sourceTree = "<group>"; };
 		AE15E1961E06033D007E628E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE15E19B1E06033D007E628E /* OutlawUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutlawUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE15E1A01E06033D007E628E /* OutlawUIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlawUIKitTests.swift; sourceTree = "<group>"; };
 		AE15E1A21E06033D007E628E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE15E1AD1E06035D007E628E /* UIColor+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Outlaw.swift"; sourceTree = "<group>"; };
 		AE15E1B01E0608C6007E628E /* Outlaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Outlaw.framework; path = "Carthage/Checkouts/outlaw/build/Debug-iphoneos/Outlaw.framework"; sourceTree = "<group>"; };
 		AE15E1B11E0608C6007E628E /* OutlawCoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OutlawCoreGraphics.framework; path = "Carthage/Checkouts/outlaw-coregraphics/build/Debug-iphoneos/OutlawCoreGraphics.framework"; sourceTree = "<group>"; };
-		AE15E1B41E06091D007E628E /* Outlaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Outlaw.framework; path = Outlaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE15E1B51E06091D007E628E /* OutlawCoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OutlawCoreGraphics.framework; path = OutlawCoreGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE15E1B41E06091D007E628E /* Outlaw.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Outlaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE15E1B51E06091D007E628E /* OutlawCoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OutlawCoreGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE15E1B81E0609BF007E628E /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 		AE15E19F1E06033D007E628E /* OutlawUIKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE15E1A01E06033D007E628E /* OutlawUIKitTests.swift */,
+				AE15E1B81E0609BF007E628E /* UIColorTests.swift */,
 				AE15E1A21E06033D007E628E /* Info.plist */,
 			);
 			path = OutlawUIKitTests;
@@ -241,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE15E1A11E06033D007E628E /* OutlawUIKitTests.swift in Sources */,
+				AE15E1B91E0609BF007E628E /* UIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
