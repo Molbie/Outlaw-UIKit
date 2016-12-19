@@ -37,7 +37,14 @@ class UIColorTests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        let rawData: [CGFloat] = [0.1, 0.2, 0.3, 0.4]
+        typealias indexes = UIColor.ExtractableIndexes
+        
+        var rawData = [CGFloat](repeating: 0, count: 4)
+        rawData[indexes.red] = 0.1
+        rawData[indexes.green] = 0.2
+        rawData[indexes.blue] = 0.3
+        rawData[indexes.alpha] = 0.4
+        
         let data: [[CGFloat]] = [rawData]
         let color: UIColor = try! data.value(for: 0)
         
@@ -47,10 +54,10 @@ class UIColorTests: XCTestCase {
         var alpha: CGFloat = 0
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        XCTAssertEqual(red, rawData[0])
-        XCTAssertEqual(green, rawData[1])
-        XCTAssertEqual(blue, rawData[2])
-        XCTAssertEqual(alpha, rawData[3])
+        XCTAssertEqual(red, rawData[indexes.red])
+        XCTAssertEqual(green, rawData[indexes.green])
+        XCTAssertEqual(blue, rawData[indexes.blue])
+        XCTAssertEqual(alpha, rawData[indexes.alpha])
     }
     
     func testInvalidValue() {
