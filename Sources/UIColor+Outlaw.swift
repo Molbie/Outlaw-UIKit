@@ -26,13 +26,13 @@ public extension UIColor {
         public static let blue: Int = 2
         public static let alpha: Int = 3
     }
+    fileprivate typealias keys = UIColor.ExtractableKeys
+    fileprivate typealias indexes = UIColor.ExtractableIndexes
 }
 
 extension UIColor: Value {
     public static func value(from object: Any) throws -> UIColor {
         if let data = object as? Extractable {
-            typealias keys = UIColor.ExtractableKeys
-            
             let red: CGFloat = try data.value(for: keys.red)
             let green: CGFloat = try data.value(for: keys.green)
             let blue: CGFloat = try data.value(for: keys.blue)
@@ -41,8 +41,6 @@ extension UIColor: Value {
             return UIColor(red: red, green: green, blue: blue, alpha: alpha ?? 1)
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = UIColor.ExtractableIndexes
-            
             let red: CGFloat = try data.value(for: indexes.red)
             let green: CGFloat = try data.value(for: indexes.green)
             let blue: CGFloat = try data.value(for: indexes.blue)
@@ -59,8 +57,6 @@ extension UIColor: Value {
 
 extension UIColor: Serializable {
     public func serialized() -> [String: CGFloat] {
-        typealias keys = UIColor.ExtractableKeys
-        
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0

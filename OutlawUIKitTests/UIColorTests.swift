@@ -14,9 +14,10 @@ import OutlawCoreGraphics
 
 
 class UIColorTests: XCTestCase {
+    fileprivate typealias keys = UIColor.ExtractableKeys
+    fileprivate typealias indexes = UIColor.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = UIColor.ExtractableKeys
-        
         let rawData: [String: CGFloat] = [keys.red: 0.1,
                                           keys.green: 0.2,
                                           keys.blue: 0.3,
@@ -37,8 +38,6 @@ class UIColorTests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = UIColor.ExtractableIndexes
-        
         var rawData = [CGFloat](repeating: 0, count: 4)
         rawData[indexes.red] = 0.1
         rawData[indexes.green] = 0.2
@@ -77,8 +76,6 @@ class UIColorTests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = UIColor.ExtractableKeys
-        
         let color = UIColor(red: 0.1, green: 0.2, blue: 0.3, alpha: 0.4)
         let data: [String: CGFloat] = color.serialized()
         
