@@ -77,7 +77,7 @@ class UIColorTests: XCTestCase {
     
     func testSerializable() {
         let color = UIColor(red: 0.1, green: 0.2, blue: 0.3, alpha: 0.4)
-        let data: [String: CGFloat] = color.serialized()
+        let data = color.serialized()
         
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -89,6 +89,40 @@ class UIColorTests: XCTestCase {
         XCTAssertEqual(data[keys.green], green)
         XCTAssertEqual(data[keys.blue], blue)
         XCTAssertEqual(data[keys.alpha], alpha)
+        
+        let white = UIColor.white
+        let data2 = white.serialized()
+        white.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        XCTAssertEqual(data2[keys.red], red)
+        XCTAssertEqual(data2[keys.green], green)
+        XCTAssertEqual(data2[keys.blue], blue)
+        XCTAssertEqual(data2[keys.alpha], alpha)
+    }
+    
+    func testIndexSerializable() {
+        let color = UIColor(red: 0.1, green: 0.2, blue: 0.3, alpha: 0.4)
+        let data = color.serializedIndexes()
+        
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        XCTAssertEqual(data[indexes.red], red)
+        XCTAssertEqual(data[indexes.green], green)
+        XCTAssertEqual(data[indexes.blue], blue)
+        XCTAssertEqual(data[indexes.alpha], alpha)
+        
+        let white = UIColor.white
+        let data2 = white.serializedIndexes()
+        white.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        XCTAssertEqual(data2[indexes.red], red)
+        XCTAssertEqual(data2[indexes.green], green)
+        XCTAssertEqual(data2[indexes.blue], blue)
+        XCTAssertEqual(data2[indexes.alpha], alpha)
     }
 }
 #endif

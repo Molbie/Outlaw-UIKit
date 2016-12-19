@@ -72,4 +72,22 @@ extension UIColor: Serializable {
         return result
     }
 }
+
+extension UIColor: IndexSerializable {
+    public func serializedIndexes() -> [CGFloat] {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 1
+        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        var result = [CGFloat](repeating: 0, count: 4)
+        result[indexes.red] = red
+        result[indexes.green] = green
+        result[indexes.blue] = blue
+        result[indexes.alpha] = alpha
+        
+        return result
+    }
+}
 #endif
