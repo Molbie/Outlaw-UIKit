@@ -14,20 +14,20 @@ import OutlawCoreGraphics
 
 
 public extension UIColor {
-    public struct ExtractableKeys {
+    struct ExtractableKeys {
         public static let red = "red"
         public static let green = "green"
         public static let blue = "blue"
         public static let alpha = "alpha"
     }
-    public struct ExtractableIndexes {
+    struct ExtractableIndexes {
         public static let red: Int = 0
         public static let green: Int = 1
         public static let blue: Int = 2
         public static let alpha: Int = 3
     }
-    fileprivate typealias keys = UIColor.ExtractableKeys
-    fileprivate typealias indexes = UIColor.ExtractableIndexes
+    private typealias keys = UIColor.ExtractableKeys
+    private typealias indexes = UIColor.ExtractableIndexes
 }
 
 extension UIColor: Value {
@@ -36,7 +36,7 @@ extension UIColor: Value {
             let red: CGFloat = try data.value(for: keys.red)
             let green: CGFloat = try data.value(for: keys.green)
             let blue: CGFloat = try data.value(for: keys.blue)
-            let alpha: CGFloat? = data.value(for: keys.alpha)
+            let alpha: CGFloat? = data.optional(for: keys.alpha)
             
             return UIColor(red: red, green: green, blue: blue, alpha: alpha ?? 1)
         }
@@ -44,7 +44,7 @@ extension UIColor: Value {
             let red: CGFloat = try data.value(for: indexes.red)
             let green: CGFloat = try data.value(for: indexes.green)
             let blue: CGFloat = try data.value(for: indexes.blue)
-            let alpha: CGFloat? = data.value(for: indexes.alpha)
+            let alpha: CGFloat? = data.optional(for: indexes.alpha)
             
             return UIColor(red: red, green: green, blue: blue, alpha: alpha ?? 1)
         }
